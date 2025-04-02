@@ -15,6 +15,7 @@ def test_new_valid_middle_school_student_gets_transportation():
     assert len(ellis.classes) == 1
     assert ellis.gets_transportation
 
+# we have one default parameter - gets_transportation
 def test_new_valid_middle_school_student_with_defaults():
     # Arrange
     name = "Ellis"
@@ -30,20 +31,22 @@ def test_middle_school_student_summary_with_transportation():
     # Arrange
     name = "Ellis"
     grade = "junior"
-    classes = ["Painting"]
+    classes = ["Painting", "Math"]
 
     # Act
     ellis = MiddleSchoolStudent(name, grade, classes, gets_transportation=True)
+    result = ellis.summary()
 
-    assert ellis.gets_transportation
+    assert result == "Ellis is a junior enrolled in 2 classes: Painting, Math. Ellis gets transportation."
 
 def test_middle_school_student_summary_without_transportation():
     # Arrange
     name = "Ellis"
     grade = "junior"
-    classes = ["Painting"]
+    classes = ["Painting", "Math"]
 
     # Act
     ellis = MiddleSchoolStudent(name, grade, classes, gets_transportation=False)
+    result = ellis.summary()
 
-    assert not ellis.gets_transportation
+    assert result == "Ellis is a junior enrolled in 2 classes: Painting, Math. Ellis does not get transportation."

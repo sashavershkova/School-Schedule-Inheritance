@@ -8,6 +8,6 @@ class MiddleSchoolStudent(Student):
 
     def summary(self):
         basic_summary = super().summary()
-        transportation_message = "Has" if self.gets_transportation else "Has not"
-        return basic_summary + f" {transportation_message} transportation."
+        transportation_message = "gets" if self.gets_transportation else "does not get"
+        return basic_summary + f" {self.name} {transportation_message} transportation."
 
